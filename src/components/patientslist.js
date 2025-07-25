@@ -22,7 +22,7 @@ const PatientList = () => {
         getPatient()
             .then((res) => {
                 console.log("Response from API:", res);
-                setPatients(res);
+                setPatients(res.data);
             })
     }
     const handleDeleteBtn = (id) => {
@@ -55,7 +55,7 @@ const PatientList = () => {
                             <td>{patient.blood_group}</td>
 
                             <td>
-                                <button className="btn btn-danger" onClick={()=>{handleDeleteBtn()}}>Delete</button>
+                                <button className="btn btn-danger" onClick={()=>{handleDeleteBtn(patient.patient_id)}}>Delete</button>
                             </td>
                         </tr>
                     ))
